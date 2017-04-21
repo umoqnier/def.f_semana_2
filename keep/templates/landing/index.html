@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+	{% block title %}Index{% endblock%}
+
+	
+	{% block content %}
+	
+		{% for user in users %}
+		{% if user.edad > 20 %}
+			<h3>Mayores de 20 años</h3>
+			<ul>
+				<li>Nombre: {{user.nombre}}</li>
+				<li>Appelido: {{user.apellidos}}</li>
+				<li>Edad: {{user.edad}}</li>
+				<li>Escolaridad: {{user.escolaridad | default:"No tienes escolaridad vago inmundo :D" | capfirst}}</li>
+			</ul>
+		{% else %}
+			<h3>Menores de 20 años</h3>
+			<ul>
+				<li>Nombre: {{user.nombre}}</li>
+				<li>Appelido: {{user.apellidos}}</li>
+				<li>Edad: {{user.edad}}</li>
+				<li>Escolaridad: {{user.escolaridad | default:"No tienes escolaridad vago inmundo :D" | capfirst}}</li>
+			</ul>
+		{% endif %}
+		{% endfor %}
+
+	{% endblock %}
